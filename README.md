@@ -26,12 +26,9 @@ Next steps:
 * `bin/setup_dev.sh` - building docker images and setup environment
 * `kubectl create -f kubernetes/dev`
 
-Check project is up and running using `minikube dashboard` command
-Done!
+Check project is up and running using `minikube dashboard`
 
 ## Everyday usage
-
-Here will go the instructions how to use project on daily basis after the first launch.
 
 ### Starting the application
 
