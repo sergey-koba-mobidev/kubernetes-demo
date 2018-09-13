@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: ingress-skillup
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    # nginx.ingress.kubernetes.io/rewrite-target: /
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   backend:
@@ -13,7 +13,7 @@ spec:
   - host: kb-skillup.local
     http:
       paths:
-      - path: /
+      - path: /api
         backend:
           serviceName: api-service
           servicePort: 80

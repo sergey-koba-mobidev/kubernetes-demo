@@ -46,3 +46,11 @@ spec:
             configMapKeyRef:
               name: db-config
               key: pass
+        volumeMounts:
+        - mountPath: /app
+          name: app-code-colume
+      volumes:
+      - name: app-code-colume
+        hostPath:
+          path: /app/api
+          type: Directory

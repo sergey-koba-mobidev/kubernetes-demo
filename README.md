@@ -22,9 +22,10 @@ cd {path_to_project_folder}
 
 Next steps:
 * `minikube start`
-* `eval $(minikube docker-env)`
 * `bin/setup_dev.sh` - building docker images and setup environment
 * `kubectl create -f kubernetes/dev`
+* `kubectl get pods` - note name of any api-deployment running pod, for example `api-deployment-f695445b9-qhgs9`
+* `kubectl exec api-deployment-f695445b9-qhgs9 rails db:migrate`
 
 Check project is up and running using `minikube dashboard` and go to [http://kb-skillup.local](http://kb-skillup.local)
 
@@ -41,6 +42,10 @@ Run `minikube stop`
 ### Updating the application
 
 * `kubectl apply -f kubernetes/dev`
+
+### Restart Api
+* `kubectl delete -f kubernetes/dev/api_deployment.yaml`
+* `kubectl create -f kubernetes/dev/api_deployment.yaml`
 
 ### Debugging the application
 
