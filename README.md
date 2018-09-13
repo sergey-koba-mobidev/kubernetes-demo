@@ -26,14 +26,13 @@ Next steps:
 * `bin/setup_dev.sh` - building docker images and setup environment
 * `kubectl create -f kubernetes/dev`
 
-Check project is up and running using `minikube dashboard`
+Check project is up and running using `minikube dashboard` and go to [http://kb-skillup.local](http://kb-skillup.local)
 
 ## Everyday usage
 
 ### Starting the application
 
-Run `minikube start`
-* `eval $(minikube docker-env)`
+Run `bin/start_dev.sh`
 
 ### Stopping the application
 
@@ -50,6 +49,7 @@ Specific instructions how to run the application console and attach to running a
 Run this command to get to console
 ```bash
 kubectl get pods
+kubectl exec -it api-deployment-7965d7f9c4-mvbg2 bash
 ```
 
 ### Cleanup

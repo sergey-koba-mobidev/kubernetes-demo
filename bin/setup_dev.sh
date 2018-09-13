@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo -e "\x1B[01;93m --- Point odkcer client to minikube internal docker host --- \x1B[0m"
+echo -e "\x1B[01;93m --- Point Dokcer client to Minikube internal Docker host --- \x1B[0m"
 eval $(minikube docker-env)
 
-echo -e "\x1B[01;93m --- Enable minikube ingress addon --- \x1B[0m"
+echo -e "\x1B[01;93m --- Enable Minikube ingress addon --- \x1B[0m"
 minikube addons enable ingress
 
 echo -e "\x1B[01;93m --- Update /etc/hosts with kb-skillup.dev --- \x1B[0m"

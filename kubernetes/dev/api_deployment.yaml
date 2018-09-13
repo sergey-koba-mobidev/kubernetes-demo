@@ -29,3 +29,20 @@ spec:
               key: secret-key-base
         - name: RAILS_ENV
           value: "development"
+        - name: POSTGRES_HOST
+          value: postgres # name of db_service
+        - name: POSTGRES_USER
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: user
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: db_name
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: pass
