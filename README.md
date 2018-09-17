@@ -26,6 +26,7 @@ Next steps:
 * `kubectl create -f kubernetes/dev`
 * `kubectl get pods` - note name of any api-deployment running pod, for example `api-deployment-f695445b9-qhgs9`
 * `kubectl exec api-deployment-f695445b9-qhgs9 rails db:migrate`
+* `kubectl exec api-deployment-f695445b9-qhgs9 rails db:seed`
 
 Check project is up and running using `minikube dashboard` and go to [http://kb-skillup.local](http://kb-skillup.local)
 

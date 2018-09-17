@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-deployment
+  labels:
+    app: front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+      - name: front
+        image: skillup_front
+        imagePullPolicy: Never # images are built locally
+        command: ["sh", "-c", "yarn install && yarn run dev"]
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /web
+          name: app-code-volume
+        env:
+        - name: NODE_ENV
+          value: "development"
+      volumes:
+      - name: app-code-volume
+        hostPath:
+          path: /Users/sergey/Projects/web/kubernetes-skillup/front
+          type: Directory

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: api
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: api
@@ -18,7 +18,7 @@ spec:
       - name: api
         image: skillup_api
         imagePullPolicy: Never # images are built locally
-        command: ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]
+        command: ["sh", "-c", "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"]
         ports:
         - containerPort: 3000
         env:
@@ -48,9 +48,9 @@ spec:
               key: pass
         volumeMounts:
         - mountPath: /app
-          name: app-code-colume
+          name: app-code-volume
       volumes:
-      - name: app-code-colume
+      - name: app-code-volume
         hostPath:
-          path: /app/api
+          path: /Users/sergey/Projects/web/kubernetes-skillup/api
           type: Directory
